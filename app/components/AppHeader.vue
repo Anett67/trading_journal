@@ -1,5 +1,5 @@
 <template>
-    <UHeader title="Mon journal de trading">
+    <UHeader title="Mon journal de trading" class="mb-5">
         <template #right>
             <UButton label="Importer des trades" class="mr-2.5"/>
             <NuxtLink to="/profile">
