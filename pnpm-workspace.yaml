@@ -1,4 +1,5 @@
 allowBuilds:
   '@parcel/watcher': false
   esbuild: false
+  maplibre-gl: set this to true or false
   vue-demi: true

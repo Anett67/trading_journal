@@ -1,29 +1,45 @@
 <script setup lang="ts">
 import type { TabsItem } from '@nuxt/ui';
+import Dashboard from '~/components/Dashboard.vue';
+import List from '~/components/List.vue';
+import Accounts from '~/components/Accounts.vue';
 
+const route = useRoute()
+const router = useRouter()
 
 const items = ref<TabsItem[]>([
   {
     label: 'Tableau de bord',
-    content: 'This is the account content.',
+    content: 'dashboard',
     icon: 'mdi-view-dashboard'
   },
   {
     label: 'Tableau',
-    content: 'This is the password content.',
-    icon: 'mdi-table-of-contents'
+    icon: 'mdi-table-of-contents',
+    content: 'list',
   },
   {
     label: 'Comptes',
-    content: 'This is the password content.',
-    icon: 'mdi-account-group'
+    icon: 'mdi-account-group',
+    content: 'accounts',
+
   }
 ])
+
+const components = {
+  'dashboard': Dashboard,
+  'list': List,
+  'accounts': Accounts
+}
 
 </script>
 
 <template>
     <UContainer>
-        <UTabs :content="false" :items="items" class="w-full cursor-pointer" />
+        <UTabs :items="items" class="w-full cursor-pointer" >
+            <template #content="{ item }">
+              <component v-if="item.content" :is="components[item.content]"></component>
+            </template>
+        </UTabs>
     </UContainer>
 </template>
