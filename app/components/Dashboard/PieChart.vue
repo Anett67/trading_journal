@@ -9,12 +9,12 @@ const data = [
 ]
 
 const categories = {
-  losses: {
-    name: 'Pertes',
+    profits: {
+    name: 'Gains',
     color: '#61BA82'
   },
-  profits: {
-    name: 'Gains',
+  losses: {
+    name: 'Pertes',
     color: '#E94643'
   },
 }
@@ -33,7 +33,7 @@ const categories = {
         >
             <div class="text-center">
                 <div class="font-semibold">
-                    {{ data }} %
+                    {{ data.find((item) => item.name === 'profits')?.percentage }} %
                 </div>
             </div>
         </DonutChart>

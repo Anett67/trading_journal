@@ -1,5 +1,4 @@
 <template>
-    <UCard>
-        Calendar
+    <UCard title="Calendrier">
     </UCard>
 </template>
